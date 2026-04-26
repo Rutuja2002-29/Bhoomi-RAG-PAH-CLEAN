@@ -8,7 +8,7 @@ langchain-community
 
 # Embeddings (Open-source, runs locally)
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.2.2+cpu
+torch==2.4.0+cpu
 sentence-transformers
 
 # Vector Database
@@ -27,6 +27,6 @@ requests
 gdown
 
 # Data Science (pre-built wheels)
-numpy
+numpy<2
 scipy
 scikit-learn
