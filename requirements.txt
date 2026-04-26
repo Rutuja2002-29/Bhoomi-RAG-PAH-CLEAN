@@ -1,0 +1,29 @@
+# PDF Processing
+PyPDF2
+pdfplumber
+
+# Text Processing & RAG Framework
+langchain
+langchain-community
+
+# Embeddings (Open-source, runs locally)
+sentence-transformers
+
+# Vector Database
+chromadb
+
+# LLM API
+groq
+
+# Web Framework
+fastapi
+uvicorn
+
+# Utilities
+python-dotenv
+requests
+
+# Data Science (pre-built wheels)
+numpy
+scipy
+scikit-learn

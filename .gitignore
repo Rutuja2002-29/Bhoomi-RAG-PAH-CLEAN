@@ -1,0 +1,7 @@
+DATA/
+chroma_data/
+env/
+__pycache__/
+*.pdf
+*.zip
+*.env
