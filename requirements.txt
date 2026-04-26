@@ -27,6 +27,6 @@ requests
 gdown
 
 # Data Science (pre-built wheels)
-numpy
+numpy<2
 scipy
 scikit-learn
