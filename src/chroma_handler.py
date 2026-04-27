@@ -1,22 +1,18 @@
-"""
-Chroma DB Handler (FINAL STABLE VERSION)
-- Batch insert fix
-- Persistent DB
-- Unique IDs
-"""
-
 import chromadb
 from typing import List, Dict
 import uuid
+import os
 
 
 class ChromaDBHandler:
     def __init__(self, collection_name: str = "default"):
         print("\n🔄 Initializing ChromaDB...")
 
-        # ✅ Persistent DB
+        # ✅ FIX: Dynamic path (Railway compatible)
+        base_path = os.path.join(os.getcwd(), "chroma_data")
+
         self.client = chromadb.PersistentClient(
-            path="C:/Bhoomi-RAG-PAH/chroma_data"
+            path=base_path
         )
 
         self.collection = self.client.get_or_create_collection(
@@ -32,7 +28,6 @@ class ChromaDBHandler:
 
         print(f"\n📥 Adding {len(chunks)} chunks...")
 
-        # 🔥 IMPORTANT: Batch size fix
         batch_size = 4000
 
         try:
@@ -47,10 +42,7 @@ class ChromaDBHandler:
                 for chunk in batch:
                     documents.append(chunk["text"])
                     embeddings.append(chunk["embedding"])
-
-                    # ✅ UNIQUE ID FIX
                     ids.append(str(uuid.uuid4()))
-
                     metadatas.append({
                         "source": chunk.get("filename", "unknown"),
                         "path": chunk.get("filepath", "unknown")
